@@ -1,4 +1,4 @@
-require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/database');
@@ -17,18 +17,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', require('./routes/registration'));
 app.use('/api/admin', require('./routes/admin'));
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Server is running' });
+// Serve React frontend
+const publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
+// Only for non-API routes, serve index.html
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-// Error handling middleware
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
