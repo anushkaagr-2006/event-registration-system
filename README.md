@@ -41,24 +41,6 @@ The **Event Registration System** is a full-stack web application designed to:
 
 ---
 
-## 📂 Project Structure  
-
-event-registration-system/
-│
-├── backend/ # Express + MongoDB API
-│ ├── routes/ # API routes
-│ ├── models/ # Database schemas
-│ ├── config/ # DB connection
-│ └── server.js # Entry point
-│
-├── frontend/ # React app
-│ ├── src/ # Components, Pages, Utils
-│ └── package.json
-│
-└── README.md
-
----
-
 ## 🔑 Admin Login  
 
 - **Password:** `admin123` (stored in `.env`)  
