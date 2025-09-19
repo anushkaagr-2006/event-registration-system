@@ -70,32 +70,6 @@ event-registration-system/
 
 ---
 
-## 📦 Setup & Installation  
-
-1. **Clone the repository**  
-```bash
-git clone https://github.com/anushkaagr-2006/event-registration-system.git
-cd event-registration-system
-
-2. **Backend Setup**
-```bash
-cd backend
-npm install
-npm run dev
-
-3. **Frontend Setup**
-```bash
-cd frontend
-npm install
-npm start
-
-4. **Environment Variables (.env)**
-```bash
-MONGO_URI=your_mongo_connection_string
-PORT=5000
-JWT_SECRET=your_secret_key
-ADMIN_PASSWORD=admin123
-
 🌐 Live Demo
 
 🔗 https://event-registration-system1.onrender.com
